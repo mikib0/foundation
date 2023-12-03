@@ -296,7 +296,7 @@ export default function Home() {
       </section>
 
       {showMenu ? (
-        <nav className='absolute top-0 left-0 right-0 bottom-0 bg-white pt-7 px-7'>
+        <nav className='fixed top-0 left-0 right-0 bottom-0 bg-white pt-7 px-7'>
           <div className='flex justify-between mb-12'>
             <p>LOGO</p>
             <Image
