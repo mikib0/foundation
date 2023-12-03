@@ -15,9 +15,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body className={`${montserrat.className} `}>
-        <main className='w-full md:max-w-6xl mx-auto'>{children}</main>
+        <main className='md:w-full md:max-w-7xl md:mx-auto md:px-12'>
+          {children}
+        </main>
         <footer className='bg-[#004AAD] text-white pb-16 pr-3 mt-16'>
-          <div className='flex flex-col flex-wrap md:flex-row gap-9 md:gap-32 pl-7 md:pl-0 pt-5  w-full max-w-6xl md:mx-auto'>
+          <div className='flex flex-col flex-wrap md:flex-row gap-9 md:gap-32 pl-7 md:pl-0 pt-5 md:w-full md:max-w-7xl md:mx-auto'>
             <div>
               <p className='mb-8'>LOGO</p>
               <div className='flex flex-col gap-4'>

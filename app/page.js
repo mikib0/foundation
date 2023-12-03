@@ -195,7 +195,7 @@ export default function Home() {
               key={text}
               text={text}
               sm={sm}
-              className={className + ' mb-2 md:mb-0'}
+              className={className + ' mb-2 md:mb-0 w-full'}
             />
           ))}
         </div>
@@ -206,7 +206,7 @@ export default function Home() {
         <Header className='text-xl leading-6 mb-3'>
           Donate to our ongoing causes
         </Header>
-        <div className='grid grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))] gap-5'>
+        <div className='grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-5'>
           <CauseCard />
           <CauseCard />
           <CauseCard />

@@ -21,7 +21,7 @@ export default function CauseCard() {
         <h3 className='text-[#222222] text-base font-medium mb-2'>
           Donate to poor children to return to school
         </h3>
-        <p className='text-sm text-[#424141]'>
+        <p className='text-xs text-[#424141]'>
           Help them go back to school and gain brighter future
         </p>
         <progress
@@ -29,16 +29,16 @@ export default function CauseCard() {
           max='100'
           className='rounded-md w-full h-2 mt-4 mb-6 overflow-hidden progress-bar'
         />
-        <div className='flex justify-center gap-0 -mx-5'>
+        <div className='flex justify-center gap-0'>
           <div className='pr-4'>
             <h4 className='text-[#424141] font-medium text-xs mb-3'>Goals</h4>
-            <span className='text-[#222222] font-semibold font-sm'>
+            <span className='text-[#222222] font-semibold text-xs'>
               N 1,000,000
             </span>
           </div>
           <div className='px-4 text-center border-x-2 border-[#C7589DA1]'>
             <h4 className='text-[#424141] font-medium text-xs mb-3'>Raised</h4>
-            <span className='text-[#222222] font-semibold font-sm'>
+            <span className='text-[#222222] font-semibold text-xs'>
               N 400,000
             </span>
           </div>
@@ -46,7 +46,7 @@ export default function CauseCard() {
             <h4 className='text-[#424141] font-medium text-xs mb-3'>
               Remaining
             </h4>
-            <span className='text-[#222222] font-normal font-sm'>
+            <span className='text-[#222222] font-normal text-xs'>
               N 600,000
             </span>
           </div>
