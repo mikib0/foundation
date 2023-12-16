@@ -32,3 +32,8 @@ export const stats = [
     value: 'N400',
   },
 ];
+
+export const pageTitles = {
+  '/': 'Building a brighter future for women & children',
+  '/causes': 'Donate to our ongoing causes',
+};

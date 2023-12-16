@@ -10,6 +10,7 @@ import {
 } from '@/components';
 import { navigations, stats } from '../constants';
 import { useRef, useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [showMenu, setShowMenu] = useState(false);
@@ -164,9 +165,11 @@ export default function Home() {
           <CauseCard />
         </div>
         <p className='text-right'>
-          <button className='font-semibold text-xl text-[#004AAD] underline mt-6'>
+          <Link
+            className='font-semibold text-xl text-[#004AAD] underline mt-6'
+            href='/causes'>
             View more
-          </button>
+          </Link>
         </p>
       </section>
 

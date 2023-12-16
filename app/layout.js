@@ -16,7 +16,7 @@ const containerStyle = 'md:w-full md:max-w-7xl md:mx-auto md:px-12';
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={`${montserrat.className} `}>
+      <body className={`${montserrat.className}`}>
         <Header className={containerStyle} />
         <main className={containerStyle}>{children}</main>
         <footer className='bg-[#004AAD] text-white pb-16 pr-3 mt-16'>
