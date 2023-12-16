@@ -1,16 +1,15 @@
 'use client';
 import {
-  Header,
   Image,
   Button,
-  SectionHeader,
+  SectionHeading,
+  Heading,
   Paragraph,
   CauseCard,
+  ServiceCard,
 } from '@/components';
-import ServiceCard from '@/components/ServiceCard';
-import { navigations, stats } from './constants';
+import { navigations, stats } from '../constants';
 import { useRef, useState } from 'react';
-import { Scrollspy } from '@makotot/ghostui';
 
 export default function Home() {
   const [showMenu, setShowMenu] = useState(false);
@@ -23,53 +22,6 @@ export default function Home() {
 
   return (
     <div className='px-5 pt-6 md:px-0'>
-      <header className='md:pt-14'>
-        <div className='hidden md:flex justify-between'>
-          <span>LOGO</span>
-
-          <nav>
-            <ul className='disc-none flex gap-10'>
-              <Scrollspy
-                sectionRefs={[
-                  whatWeDoRef,
-                  servicesRef,
-                  causesRef,
-                  ourTeamRef,
-                  testimonialsRef,
-                ]}>
-                {(currentElementIndexInViewport) =>
-                  navigations.map((item, i) => (
-                    <li
-                      className={`transition-all mb-14 text-[#726F6F] hover:text-[#C7589D] ${
-                        currentElementIndexInViewport == i
-                          ? 'text-[#C7589D]'
-                          : ''
-                      }`}>
-                      <a href={'#' + item.replace(/\s/g, '-').toLowerCase()}>
-                        {item}
-                      </a>
-                    </li>
-                  ))
-                }
-              </Scrollspy>
-            </ul>
-          </nav>
-        </div>
-
-        <Image
-          sm={{
-            src: '/hamburger.png',
-            width: 18,
-            height: 12,
-          }}
-          className='md:hidden mb-5'
-          // imageClassName='pr-2'
-          onClick={() => setShowMenu(true)}
-        />
-        <Header className='text-2xl md:text-5xl md:leading-[80px] px-4'>
-          Building a brighter future for women & children
-        </Header>
-      </header>
       <div className='my-6 md:mb-14 md:mx-auto flex justify-center gap-3'>
         <Button>Donate now</Button>
         <Button outlined>Contact us</Button>
@@ -97,8 +49,8 @@ export default function Home() {
       </div>
 
       <section id='what-we-do' className='mt-8 md' ref={whatWeDoRef}>
-        <SectionHeader>About us</SectionHeader>
-        <Header className='text-xl'>Making a brighter future</Header>
+        <SectionHeading>About us</SectionHeading>
+        <Heading className='text-xl'>Making a brighter future</Heading>
         <div className='md:grid md:grid-cols-2 md:grid-rows-2 items-start'>
           <p className='leading-7 mt-2 md:mt-8 md:leading-10'>
             Lorem ipsum dolor sit amet consectetur. Placerat integer eget tempor
@@ -132,10 +84,10 @@ export default function Home() {
       </section>
 
       <section id='services' className='mt-5' ref={servicesRef}>
-        <SectionHeader>Services</SectionHeader>
-        <Header className='text-xl mb-5'>
+        <SectionHeading>Services</SectionHeading>
+        <Heading className='text-xl mb-5'>
           Empowering women and nurturing children
-        </Header>
+        </Heading>
         <div className='md:grid md:auto-rows-3 md:grid-cols-3'>
           {[
             {
@@ -202,10 +154,10 @@ export default function Home() {
       </section>
 
       <section id='causes' ref={causesRef}>
-        <SectionHeader>Causes</SectionHeader>
-        <Header className='text-xl leading-6 mb-3'>
+        <SectionHeading>Causes</SectionHeading>
+        <Heading className='text-xl leading-6 mb-3'>
           Donate to our ongoing causes
-        </Header>
+        </Heading>
         <div className='grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-5'>
           <CauseCard />
           <CauseCard />
@@ -219,10 +171,10 @@ export default function Home() {
       </section>
 
       <section id='our-team' className='mt-5' ref={ourTeamRef}>
-        <SectionHeader>Our team</SectionHeader>
-        <Header className='text-xl leading-8'>
+        <SectionHeading>Our team</SectionHeading>
+        <Heading className='text-xl leading-8'>
           Meet the minds behind this
-        </Header>
+        </Heading>
 
         <div className='mt-12 flex flex-wrap gap-8 md:gap-48 justify-between'>
           {[
@@ -260,10 +212,10 @@ export default function Home() {
       </section>
 
       <section id='testimonials' className='mt-5' ref={testimonialsRef}>
-        <SectionHeader>Testimonials</SectionHeader>
-        <Header className='leading-8 text-xl font-semibold'>
+        <SectionHeading>Testimonials</SectionHeading>
+        <Heading className='leading-8 text-xl font-semibold'>
           What people say
-        </Header>
+        </Heading>
         <div>
           <div className='md:flex md:gap-11'>
             <div className='md:max-w-xl md:flex md:flex-col md:justify-center'>
@@ -294,27 +246,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {showMenu ? (
-        <nav className='fixed top-0 left-0 right-0 bottom-0 bg-white pt-7 px-7'>
-          <div className='flex justify-between mb-12'>
-            <p>LOGO</p>
-            <Image
-              sm={{
-                src: '/close.png',
-                width: 14,
-                height: 14,
-              }}
-              onClick={() => setShowMenu(false)}
-            />
-          </div>
-          <ul className='text-center'>
-            {navigations.map((item) => (
-              <li className='transition-all mb-14 text-[#726F6F]'>{item}</li>
-            ))}
-          </ul>
-        </nav>
-      ) : null}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import './globals.css';
 import { Montserrat } from 'next/font/google';
 import { Button, Header, Image } from '@/components';
-import { footerNavs } from './constants';
+import { footerNavs } from '../constants';
 import Link from 'next/link';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
@@ -11,13 +11,14 @@ export const metadata = {
   description: 'Foundation website',
 };
 
+const containerStyle = 'md:w-full md:max-w-7xl md:mx-auto md:px-12';
+
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body className={`${montserrat.className} `}>
-        <main className='md:w-full md:max-w-7xl md:mx-auto md:px-12'>
-          {children}
-        </main>
+        <Header className={containerStyle} />
+        <main className={containerStyle}>{children}</main>
         <footer className='bg-[#004AAD] text-white pb-16 pr-3 mt-16'>
           <div className='flex flex-col flex-wrap md:flex-row gap-9 md:gap-32 pl-7 md:pl-0 pt-5 md:w-full md:max-w-7xl md:mx-auto'>
             <div>
