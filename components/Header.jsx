@@ -1,12 +1,22 @@
 'use client';
-import { navigations } from '@/constants';
+import { navigations, pageTitles } from '@/constants';
 import { Scrollspy } from '@makotot/ghostui';
-import { useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 import Heading from './Heading';
 import Image from './Image';
 
 export default function Header({ className }) {
   const [showMenu, setShowMenu] = useState(false);
+  const path = usePathname();
+
+  // toogleScroll base on menu state
+  useEffect(() => {
+    const op = { true: 'add', false: 'remove' }[showMenu];
+    document.body.classList[op]('m-0');
+    document.body.classList[op]('h-full');
+    document.body.classList[op]('overflow-hidden');
+  }, [showMenu]);
 
   const whatWeDoRef = useRef();
   const servicesRef = useRef();
@@ -15,7 +25,7 @@ export default function Header({ className }) {
   const testimonialsRef = useRef();
 
   return (
-    <header className={`md:pt-14 ${className}`}>
+    <header className={`md:pt-14 px-5 pt-6 md:px-0 ${className}`}>
       <div className='hidden md:flex justify-between'>
         <span>LOGO</span>
 
@@ -59,11 +69,11 @@ export default function Header({ className }) {
         onClick={() => setShowMenu(true)}
       />
       <Heading className='text-2xl md:text-5xl md:leading-[80px] px-4'>
-        Building a brighter future for women & children
+        {pageTitles[path]}
       </Heading>
 
       {showMenu ? (
-        <nav className='fixed top-0 left-0 right-0 bottom-0 bg-white pt-7 px-7'>
+        <nav className='fixed top-0 left-0 right-0 bottom-0 bg-white pt-7 px-7 z-10'>
           <div className='flex justify-between mb-12'>
             <p>LOGO</p>
             <Image
@@ -73,7 +83,9 @@ export default function Header({ className }) {
                 height: 14,
               }}
               className='hover:cursor-pointer'
-              onClick={() => setShowMenu(false)}
+              onClick={() => {
+                setShowMenu(false);
+              }}
             />
           </div>
           <ul className='text-center'>
