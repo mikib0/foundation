@@ -66,70 +66,74 @@ export default function DonationModal({ close }) {
         onClick={close}
       />
       <div className={getTransitionStyleForStep(0)}>
-        <h1 className='text-center font-medium text-2xl mb-6'>Donate now</h1>
-        <div className='flex flex-col gap-4'>
-          {donationPrices.map((price, i) => (
-            <Radio value={price} isDefault={i == 0} name='donation-price'>
-              <span>{price}</span>
-            </Radio>
-          ))}
-        </div>
-        <div className='my-6'>
-          <h2 className='text-cblack font-semibold text-xl'>Other amount</h2>
-          <div className='bg-lightGrayWithYellowishTint flex gap-4 px-5 py-4'>
-            <span className='text-cblack font-semibold text-base'>N</span>
-            <input
-              type='text'
-              placeholder='Add any amount'
-              className='placeholder:text-cblack placeholder:text-opacity-50 text-cblack text-opacity-50 outline-none bg-transparent'
-            />
+        <div className='max-w-xl mx-auto'>
+          <h1 className='text-center font-medium text-2xl mb-6'>Donate now</h1>
+          <div className='flex flex-col gap-4'>
+            {donationPrices.map((price, i) => (
+              <Radio value={price} isDefault={i == 0} name='donation-price'>
+                <span>{price}</span>
+              </Radio>
+            ))}
           </div>
+          <div className='my-6'>
+            <h2 className='text-cblack font-semibold text-xl'>Other amount</h2>
+            <div className='bg-lightGrayWithYellowishTint flex gap-4 px-5 py-4'>
+              <span className='text-cblack font-semibold text-base'>N</span>
+              <input
+                type='text'
+                placeholder='Add any amount'
+                className='placeholder:text-cblack placeholder:text-opacity-50 text-cblack text-opacity-50 outline-none bg-transparent'
+              />
+            </div>
+          </div>
+          <Button className='w-full' onClick={nextStep}>
+            Select payment method
+          </Button>
         </div>
-        <Button className='w-full' onClick={nextStep}>
-          Select payment method
-        </Button>
       </div>
 
       <div className={getTransitionStyleForStep(1)}>
-        <NextImage
-          src='/ep_back.png'
-          width={24}
-          height={24}
-          className='cursor-pointer'
-          onClick={prevStep}
-        />
-        <h1 className='font-medium text-2xl text-center mb-8 mt-20'>
-          How will you like to pay?
-        </h1>
-        <div className='flex flex-col gap-4 mb-6'>
-          {[
-            {
-              icon: '/ph_bank-fill.png',
-              method: 'bank',
-            },
-            {
-              icon: '/ph_bank-fill.png',
-              method: 'USSD',
-            },
-            {
-              icon: '/ph_bank-fill.png',
-              method: 'card',
-            },
-          ].map((item) => (
-            <Radio
-              value={item.method}
-              isDefault={item.method == 'USSD'}
-              name='payment-method'>
-              <div className='flex items-center gap-6 bg-transparent w-3/5 h-full'>
-                <NextImage src={item.icon} width={20} height={20} />
-                <span>Pay with {item.method}</span>
-              </div>
-            </Radio>
-          ))}
+        <div className='max-w-xl mx-auto'>
+          <NextImage
+            src='/ep_back.png'
+            width={24}
+            height={24}
+            className='cursor-pointer'
+            onClick={prevStep}
+          />
+          <h1 className='font-medium text-2xl text-center mb-8 mt-20'>
+            How will you like to pay?
+          </h1>
+          <div className='flex flex-col gap-4 mb-6'>
+            {[
+              {
+                icon: '/ph_bank-fill.png',
+                method: 'bank',
+              },
+              {
+                icon: '/ph_bank-fill.png',
+                method: 'USSD',
+              },
+              {
+                icon: '/ph_bank-fill.png',
+                method: 'card',
+              },
+            ].map((item) => (
+              <Radio
+                value={item.method}
+                isDefault={item.method == 'USSD'}
+                name='payment-method'>
+                <div className='flex items-center gap-6 bg-transparent w-3/5 h-full'>
+                  <NextImage src={item.icon} width={20} height={20} />
+                  <span>Pay with {item.method}</span>
+                </div>
+              </Radio>
+            ))}
+          </div>
+          <Button className='w-full' onClick={nextStep}>
+            Select payment method
+          </Button>
         </div>
-        <Button className='w-full' onClick={nextStep}>
-          Select payment method
-        </Button>
       </div>
 
       <div className={getTransitionStyleForStep(2)}>
