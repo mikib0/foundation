@@ -6,3 +6,4 @@ export { default as ServiceCard } from './ServiceCard';
 export { default as Paragraph } from './Paragraph';
 export { default as CauseCard } from './CauseCard';
 export { default as Header } from './Header';
+export { default as DonationModal } from './DonationModal';

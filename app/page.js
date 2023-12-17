@@ -7,13 +7,14 @@ import {
   Paragraph,
   CauseCard,
   ServiceCard,
+  DonationModal,
 } from '@/components';
 import { navigations, stats } from '../constants';
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 
 export default function Home() {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showDonationModal, setShowDonationModal] = useState(false);
 
   const whatWeDoRef = useRef();
   const servicesRef = useRef();
@@ -24,7 +25,7 @@ export default function Home() {
   return (
     <div className='px-5 pt-6 md:px-0'>
       <div className='my-6 md:mb-14 md:mx-auto flex justify-center gap-3'>
-        <Button>Donate now</Button>
+        <Button onClick={() => setShowDonationModal(true)}>Donate now</Button>
         <Button outlined>Contact us</Button>
       </div>
       <div className='grid grid-cols-2 grid-rows-[minmax(0,_1fr)_auto] md:grid-cols-[minmax(0,_1fr)_auto] md:grid-rows-2 gap-1'>
@@ -249,6 +250,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {showDonationModal && (
+        <DonationModal close={() => setShowDonationModal(false)} />
+      )}
     </div>
   );
 }

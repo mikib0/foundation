@@ -37,3 +37,10 @@ export const pageTitles = {
   '/': 'Building a brighter future for women & children',
   '/causes': 'Donate to our ongoing causes',
 };
+
+export const donationPrices = [
+  'N 10, 000',
+  'N 50, 000',
+  'N 100, 000',
+  'N 200, 000',
+];
