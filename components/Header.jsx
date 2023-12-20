@@ -5,6 +5,16 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import Heading from './Heading';
 import Image from './Image';
+import { default as NextImage } from 'next/image';
+
+const Logo = () => (
+  <NextImage
+    src='/logo.png'
+    width={255}
+    height={255}
+    className='w-16 md:w-20'
+  />
+);
 
 export default function Header({ className }) {
   const [showMenu, setShowMenu] = useState(false);
@@ -26,8 +36,8 @@ export default function Header({ className }) {
 
   return (
     <header className={`md:pt-14 px-5 pt-6 md:px-0 ${className}`}>
-      <div className='hidden md:flex justify-between'>
-        <span>LOGO</span>
+      <div className='hidden md:flex justify-between md:items-center md:mb-12'>
+        <Logo />
 
         <nav>
           <ul className='disc-none flex gap-10'>
@@ -44,7 +54,7 @@ export default function Header({ className }) {
               {(currentElementIndexInViewport) =>
                 navigations.map((item, i) => (
                   <li
-                    className={`transition-all mb-14 text-[#726F6F] hover:text-[#C7589D] ${
+                    className={`transition-all mb-14 md:mb-0 text-[#726F6F] hover:text-[#C7589D] ${
                       currentElementIndexInViewport == i ? 'text-[#C7589D]' : ''
                     }`}>
                     <a href={'#' + item.replace(/\s/g, '-').toLowerCase()}>
@@ -74,8 +84,8 @@ export default function Header({ className }) {
 
       {showMenu ? (
         <nav className='fixed top-0 left-0 right-0 bottom-0 bg-white pt-7 px-7 z-10'>
-          <div className='flex justify-between mb-12'>
-            <p>LOGO</p>
+          <div className='flex justify-between mb-12 items-center'>
+            <Logo />
             <Image
               sm={{
                 src: '/close.png',
