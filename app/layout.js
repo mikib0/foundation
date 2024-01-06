@@ -9,6 +9,9 @@ const montserrat = Montserrat({ subsets: ['latin'] });
 export const metadata = {
   title: 'Foundation',
   description: 'Foundation website',
+  icons: {
+    icon: '/logo.png',
+  },
 };
 
 const containerStyle = 'md:w-full md:max-w-7xl md:mx-auto md:px-12';
